@@ -16,6 +16,6 @@ echo 'Back in the remote shell just paste the commands from the clipboard.'
 COLS=$(stty size | awk '{ print $2 }')
 ROWS=$(stty size | awk '{ print $1 }')
 echo "export SHELL=bash
-export TERM=$TERM
+export TERM=xterm-256color
 stty cols $COLS rows $ROWS
 reset" | xclip -selection clipboard
