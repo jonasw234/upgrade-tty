@@ -1,6 +1,5 @@
 #!/bin/sh
 echo 'This script is used to upgrade netcat shells to fully fledged shells.\n'
-echo 'Don'\''t forget to use bash as your local shell, zsh won'\''t work!'
 echo ''
 echo 'Paste the first command from the clipboard into the remote shell.'
 echo 'python -c '\''import pty; pty.spawn("/bin/bash")'\'' || python3 -c '\''import pty; pty.spawn("/bin/bash")'\''' | xclip -selection clipboard
