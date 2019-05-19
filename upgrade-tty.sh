@@ -8,7 +8,7 @@ echo -n 'Continue with any key.'
 read ignore
 
 echo 'Paste this command in your local shell'
-echo 'stty raw -echo' | xclip -selection clipboard
+echo 'stty raw -echo; fg' | xclip -selection clipboard
 echo -n 'Continue with any key.'
 read ignore
 
