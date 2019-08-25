@@ -2,7 +2,7 @@
 echo 'This script is used to upgrade netcat shells to fully fledged shells.\n'
 echo ''
 echo 'Paste the first command from the clipboard into the remote shell.'
-echo 'python -c '\''import pty; pty.spawn("/bin/bash")'\'' || python3 -c '\''import pty; pty.spawn("/bin/bash")'\''' | xclip -selection clipboard
+echo 'python -c '\''import pty; pty.spawn("/bin/bash")'\'' || python3 -c '\''import pty; pty.spawn("/bin/bash")'\'' || script -qc /bin/bash /dev/null' | xclip -selection clipboard
 echo -n 'Continue with any key.'
 read ignore
 
