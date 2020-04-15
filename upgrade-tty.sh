@@ -4,12 +4,16 @@
 # Needs a sort of NOP slide because sometimes xdotool would only type after the forth or fifth character
 xdotool type ' #################'
 xdotool key Return
+xdotool type ' unset HISTFILE'
+xdotool key Return
 xdotool type ' python -c '\''import pty; pty.spawn("/bin/bash")'\'' || python3 -c '\''import pty; pty.spawn("/bin/bash")'\'' || script -qc /bin/bash /dev/null'
 xdotool key Return
 xdotool keydown ctrl key z; sleep .1; xdotool keyup ctrl
 xdotool type 'stty size | xclip -selection clipboard'
 xdotool key Return
 xdotool type 'stty raw -echo; fg'
+xdotool key Return
+xdotool type ' unset HISTFILE'
 xdotool key Return
 xdotool type ' export SHELL=bash'
 xdotool key Return
