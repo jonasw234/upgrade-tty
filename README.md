@@ -10,4 +10,4 @@ First step is to get a nc shell.  Then start the `upgrade-tty.sh` script with a 
 
 Commands that are run on the remote system are prefixed by a space to prevent saving them to history.
 
-I learned this from the YouTuber IppSec, so give him some love! I just added the scripting around it because I found it to tedious to type the commands by hand everytime.
+I learned this from the YouTuber [IppSec](https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA), so give him some love! I just added the scripting around it because I found it too tedious to type the commands by hand everytime.
