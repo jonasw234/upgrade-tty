@@ -11,3 +11,6 @@ First step is to get a nc shell ([shellver](https://github.com/jonasw234/shellve
 Commands that are run on the remote system are prefixed by a space to prevent saving them to history.
 
 I learned this from the YouTuber [IppSec](https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA), so give him some love! I just added the scripting around it because I found it too tedious to type the commands by hand everytime.
+
+## Related projects
+[pwncat](https://github.com/calebstewart/pwncat) automates much of what this script does if you use it as listener instead of `nc`.
